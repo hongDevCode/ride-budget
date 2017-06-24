@@ -1,0 +1,339 @@
+/*CSS applies to screen with max-width: 768px */
+
+/*general styles*/
+* {
+	box-sizing: border-box;
+}
+
+
+/*Landing Styles*/
+
+body {
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	padding: 0;
+	margin: 0;
+	background-color: #00BCD4;
+	position: center;
+	height: auto;
+	width: 100%;
+	background-image: url('city.jpg');
+	background-size: cover;
+	height: 800px;
+}
+
+header {
+	background: rgba(76, 175, 80, 0.2);
+	color: #ffffff;
+	border-bottom: #B2EBF2 3px solid;
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+
+}
+
+header p {
+	margin: 5px;
+
+}
+
+
+#main-container {
+
+}
+
+.container {
+	color: #ffffff;
+
+}
+
+a {
+	text-decoration: none;
+
+
+}
+
+a:hover {
+	color: #3DE420;
+
+}
+
+h1 {
+	margin: 0;
+	color: #ffffff;
+}
+
+h2 {
+	font-family: 'Oswald', sans-serif;
+}
+
+h4 {
+	font-family: 'Oswald', sans-serif;
+}
+p {
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+
+}
+
+li {
+	list-style-type: none;
+
+}
+
+img {
+	width: auto;
+	height: auto;
+}
+
+.company-logo {
+	width: 40px;
+
+}
+
+/*Home styles*/
+#main-logo {
+	/*top: 0px;
+	left: 50px;*/
+	font-size: 30px;
+	width: 175px;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	color: #000000;
+}
+
+.form {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+	/*border: 5px solid rgba(0, 0, 0, .5);*/
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box;  for IE9+, Firefox 4+, Opera, Chrome 
+}
+
+.form label {
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+}
+
+.form input {
+	width: 80%;
+
+}
+
+.type-vehicle {
+	text-align: center;
+
+}
+
+.home {
+	
+}
+
+#map {
+	text-align: center;
+	height: 400px;
+
+}
+
+
+
+#results {
+	
+}
+
+.result-lists {
+
+}
+#result-section {
+	background: rgba(76, 175, 80, 0.2);
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+
+
+}
+.result-item {
+	
+}
+
+.hide {
+	display: none;
+}
+
+footer {
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #80DEEA;
+
+
+}
+
+/* For mobile phones: */
+/* CSS Grid */
+.row {
+	overflow: hidden;
+}
+[class*="col-"] {
+	width: 100%;
+	display: block;
+	float: left;
+	padding: 3px;
+	box-sizing: border-box;
+
+}
+
+
+
+/* For tablets, small devices: */
+.col-m-1 {
+	width: 8.33%;
+}
+.col-m-2 {
+	width: 16.66%;
+}
+
+.col-m-3 {
+	width: 25%;
+}
+.col-m-4 {
+	width: 33.33%;
+}
+.col-m-5 {
+	width: 41.66%;
+}
+.col-m-6 {
+	width: 50%;
+}
+.col-m-7 {
+	width: 58.33%;
+}
+.col-m-8 {
+	width: 66.66%;
+}
+.col-m-9 {
+	width: 75%;
+}
+.col-m-10 {
+	width: 83.33%;
+}
+.col-m-11 {
+	width: 91.66%;
+}
+.col-m-12 {
+	width: 100%;
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.form input {
+		width: 100%;
+	}
+	.company-logo {
+		width: 16.66%;
+
+	}
+	.container {
+		width: 80%;
+		margin: auto; 
+		overflow: hidden;
+
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	body {
+		height: 1000px;
+	}
+	.form input {
+		width: 100%;
+
+	}
+	header {
+		padding-top: 30px;
+		
+	}
+	.container {
+		width: 80%;
+		margin: auto; 
+		overflow: hidden;
+
+	}
+	.company-logo {
+		width: 100px;
+	
+	}
+	#map {
+		height: 450px;		
+
+	}
+}
+/*13 inch screens */
+@media only screen and (min-width: 1000px) {
+	.company-logo {
+		width: 200px;
+	}
+
+	#map {
+		height: 500px;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+	.company-logo {
+		width: 175px;
+
+	}
+	#map {
+		height: 500px;
+	}
+}
+/* CSS Grid for screen sizes bigger 768px width*/
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+	    .col-1 {
+	    	width: 8.33%;
+	}
+	    .col-2 {
+	    	width: 16.66%;
+	}
+	    .col-3 {
+	    	width: 25%;
+	}
+	    .col-4 {
+	    	width: 33.33%;
+	}
+	    .col-5 {
+	    	width: 41.66%;
+	}
+	    .col-6 {
+	    	width: 50%;
+	}
+	    .col-7 {
+	    	width: 58.33%;
+	}
+	    .col-8 {
+	    	width: 66.66%;
+	}
+	    .col-9 {
+	    	width: 75%;
+	}
+	    .col-10 {
+	    	width: 83.33%;
+	}
+	    .col-11 {
+	    	width: 91.66%;
+	}
+	    .col-12 {
+	    	width: 100%;
+	}
+}
+
+

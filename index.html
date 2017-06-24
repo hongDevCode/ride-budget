@@ -1,0 +1,84 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Hong Tran">
+	<title>Ride Budget | Welcome</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+<body>
+
+
+<div id="main-container">
+	<section id="home" class="box hide container">
+		<header>
+			<h1 id="main-logo"><a href="index.html">Ride Budget</a></h1>
+			<p>Find The Best Price For Your Daily Commute!</p>
+
+			<div class="form row">
+				<label class="col-m-12 col-6" for="pickup"><input id="pickUp" type="text" placeholder="Enter Pickup Location">
+				</label>
+				<label class="col-m-12 col-6" for="dropoff"><input id="dropOff" type="text" placeholder="Enter Drop-Off Location">
+				</label>
+				
+				 <label class="col-m-12 type-vehicle" for="vehicle"> Type of Vehicle
+					<select id="vehicle" placeholder="Type of Vehicle?">
+						<option value="car">Car (4 seats)</option>
+					 	<option value="suv">Suv (6 seats)</option>
+					</select>
+				 </label>
+			</div>
+		</header>	
+
+
+	
+		<main class="container">
+
+
+			
+
+			<div id="results" class="box hide">
+				<ol class="result-list">
+
+				</ol>
+			</div>
+		
+			<section id="result-section" class="box hide">
+				<div class="">
+					<div class="row">
+						<li class="result-item">
+							<!-- <h1 id="change-company">Company</h1> -->
+							<span ><a href=""><img class="company-logo col-m-6" src=""></a></span>
+							
+						</li>
+						<li><span class="prices col-m-6">Price:&nbsp;&nbsp;<span id="change-price">$</span></span>
+						</li>
+					</div>
+				</div>
+			</section>
+			<div id="map">
+
+			</div>
+		</main>
+	</section>	
+	
+	<footer>
+		<p>Ride Budget, Copyright &copy; 2017</p>
+	</footer>
+
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEOE9F9HGeovKbWnE4kMcYVLS7NO7Wapg"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
