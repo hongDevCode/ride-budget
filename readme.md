@@ -18,11 +18,11 @@ This Ride Budget app will help you plan a trip with your local ride share provid
 
 ### Techinical:
 
-	- ** I used the Google Maps API show a visual respresentation of the distance and time it would take driving to get from the pickup location to the destination drop off. **
+	1. I used the Google Maps API show a visual respresentation of the distance and time it would take driving to get from the pickup location to the destination drop off.
 
-	- **I used the LYFT API to calculate the cost if the user decides to use the LYFT provider as their desired app.**
+	2. I used the LYFT API to calculate the cost if the user decides to use the LYFT provider as their desired app.
 
-	- **I wrote an algebratic formula with JavaScript and given the GetMe price information to calculate the the price using this ride share provider based on vehicle type, base rate, per mile, per miniute, and safety & security fee.**
+	3. I wrote an algebratic formula with JavaScript and given the GetMe price information to calculate the the price using this ride share provider based on vehicle type, base rate, per mile, per miniute, and safety & security fee.
 
 ## Collaborators: 
 Miguel San Segundo
