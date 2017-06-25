@@ -12,7 +12,7 @@
 		"pickup": "",
 		"dropoff": "",
 		"passengers": "1",
-		"vehicle": "car",
+		"vehicle": "",
 		"start": 
 				{
 					lng: 0,
@@ -57,7 +57,7 @@
 	// events 
 	$pickUp.on('keyup', userInputPickup)
 	$dropOff.on('keyup', userInputDropoff)
-	$passengers.on('change', userInputPassengers)
+	// $passengers.on('change', userInputPassengers)
 	$vehicle.on('change', userInputVehicle)
 	
 
@@ -89,15 +89,16 @@
 		
 	}
 
-	function userInputPassengers() {
-			stateObj.passengers = $(this).val();
-			calculatePrice();
-		// // to get the text for user inputted number of passengers
-		// use function when user .change value of input text
-	}
+	// function userInputPassengers() {
+	// 		stateObj.passengers = $(this).val();
+	// 		calculatePrice();
+	// 	// // to get the text for user inputted number of passengers
+	// 	// use function when user .change value of input text
+	// }
 
 	function userInputVehicle() {
 			stateObj.vehicle = $(this).val();
+			getMap();
 			calculatePrice();
 	}
 
@@ -190,9 +191,10 @@
 	}
 
 	function requiresLocations() {
-		if(!stateObj.pickup || !stateObj.dropoff) { // requires the properties and not empty with some value
+		if(!stateObj.pickup || !stateObj.dropoff || !stateObj.vehicle) { // requires the properties and not empty with some value
 			return true // breaks the function
 		}
+
 	}
 
 	function getUserTime() {

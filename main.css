@@ -36,12 +36,13 @@ header {
 }
 
 header p {
-	margin: 5px;
+	margin: 3px;
 
 }
 
 
 #main-container {
+	padding-bottom: 100px;
 
 }
 
@@ -90,7 +91,7 @@ img {
 }
 
 .company-logo {
-	width: 40px;
+	width: 100px;
 
 }
 
@@ -103,15 +104,15 @@ img {
 	font-family: 'Oswald', sans-serif;
 	text-align: center;
 	color: #000000;
+	margin-bottom: 10px;
 }
 
 .form {
-	padding-top: 30px;
-	padding-bottom: 30px;
 	text-align: center;
 	/*border: 5px solid rgba(0, 0, 0, .5);*/
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box;  for IE9+, Firefox 4+, Opera, Chrome 
+
 }
 
 .form label {
@@ -121,12 +122,23 @@ img {
 
 .form input {
 	width: 80%;
+	border-radius: 4px;
+    border: 0;
+    padding: 5px;
 
 }
-
+#vehicle {
+	display: block;
+	margin: 5px auto;
+}
 .type-vehicle {
 	text-align: center;
 
+}
+
+#change-price {
+	font-size: 25px;
+	line-height: 30px;
 }
 
 .home {
@@ -135,7 +147,7 @@ img {
 
 #map {
 	text-align: center;
-	height: 400px;
+	height: 300px;
 
 }
 
@@ -145,9 +157,11 @@ img {
 	
 }
 
-.result-lists {
-
+.result-list {
+	background: rgba(0, 0, 0, 0.4);
+	margin: 0;
 }
+
 #result-section {
 	background: rgba(76, 175, 80, 0.2);
 	-webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -157,7 +171,8 @@ img {
 
 }
 .result-item {
-	
+	padding-bottom: 10px; 
+	padding-top: 10px;
 }
 
 .hide {
@@ -234,7 +249,7 @@ footer {
 		width: 100%;
 	}
 	.company-logo {
-		width: 16.66%;
+		width: 103px;
 
 	}
 	.container {
@@ -243,6 +258,9 @@ footer {
 		overflow: hidden;
 
 	}
+	.form label {
+		margin-bottom: 10px;
+	}
 }
 
 /* Medium Devices, Desktops */
@@ -250,12 +268,8 @@ footer {
 	body {
 		height: 1000px;
 	}
-	.form input {
-		width: 100%;
-
-	}
 	header {
-		padding-top: 30px;
+		padding-top: 16px;
 		
 	}
 	.container {
@@ -265,19 +279,21 @@ footer {
 
 	}
 	.company-logo {
-		width: 100px;
+		margin-right: 10px;
+		margin-bottom: 10px;
 	
 	}
 	#map {
 		height: 450px;		
 
 	}
+	.row {
+		width: 50%;
+		margin: auto;
+	}
 }
 /*13 inch screens */
 @media only screen and (min-width: 1000px) {
-	.company-logo {
-		width: 200px;
-	}
 
 	#map {
 		height: 500px;
@@ -286,11 +302,6 @@ footer {
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
-	.company-logo {
-		width: 175px;
-
-	}
 	#map {
 		height: 500px;
 	}

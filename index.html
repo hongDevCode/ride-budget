@@ -26,6 +26,7 @@
 				
 				 <label class="col-m-12 type-vehicle" for="vehicle"> Type of Vehicle
 					<select id="vehicle" placeholder="Type of Vehicle?">
+						<option value="">Select Vehicle</option>
 						<option value="car">Car (4 seats)</option>
 					 	<option value="suv">Suv (6 seats)</option>
 					</select>
@@ -47,17 +48,11 @@
 			</div>
 		
 			<section id="result-section" class="box hide">
-				<div class="">
-					<div class="row">
-						<li class="result-item">
+						<li class="result-item row">
 							<!-- <h1 id="change-company">Company</h1> -->
-							<span ><a href=""><img class="company-logo col-m-6" src=""></a></span>
-							
+							<span class="col-m-6" ><a href=""><img class="company-logo" src=""></a></span>
+							<span class="prices col-m-6"><span id="change-price">$</span></span>
 						</li>
-						<li><span class="prices col-m-6">Price:&nbsp;&nbsp;<span id="change-price">$</span></span>
-						</li>
-					</div>
-				</div>
 			</section>
 			<div id="map">
 
