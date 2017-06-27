@@ -3,6 +3,7 @@
 // auto invoke IIFE - all code is local, not global
 (function () {
 
+	// STATE declaration
 	// JSON object for empty template
 	var stateObj = {
 		"googleMapsKey" : "AIzaSyAEOE9F9HGeovKbWnE4kMcYVLS7NO7Wapg",
@@ -43,7 +44,7 @@
 	};
 
 
-	// selectors 
+	// selectors - Variable declaration
 	var $container = $('#main-container')
 	var $pickUp = $('#pickUp')
 	var $dropOff = $('#dropOff')
@@ -54,16 +55,10 @@
 	var $template = $('#result-section')
 
 
-	// events 
-	$pickUp.on('keyup', userInputPickup)
-	$dropOff.on('keyup', userInputDropoff)
-	// $passengers.on('change', userInputPassengers)
-	$vehicle.on('change', userInputVehicle)
+
 	
 
-	// functions needed 
-		// How to change the pages
-		// How to show/hide template pages
+	// Function Declaration
 
 	function showHide(screenName) {
 		$(".box").addClass("hide")
@@ -89,13 +84,6 @@
 		
 	}
 
-	// function userInputPassengers() {
-	// 		stateObj.passengers = $(this).val();
-	// 		calculatePrice();
-	// 	// // to get the text for user inputted number of passengers
-	// 	// use function when user .change value of input text
-	// }
-
 	function userInputVehicle() {
 			stateObj.vehicle = $(this).val();
 			getMap();
@@ -106,17 +94,10 @@
 		if(requiresLocations()) return false
 		var pickUpMap = encodeURIComponent(stateObj.pickup)
 		var dropOffMap = encodeURIComponent(stateObj.dropoff)
-		$("#map").html('<iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='+ pickUpMap +'&destination='+ dropOffMap +'&key=AIzaSyAEOE9F9HGeovKbWnE4kMcYVLS7NO7Wapg" allowfullscreen></iframe>')
-		// getCoordinates(pickUpMap);
-		// getCoordinates(dropOffMap);
-	}
-
-	function getCoordinates(address) {
-		$.get('http://maps.google.com/maps/api/geocode/json?address='+ address, function(data) {
-			// console.log(data.results[0].geometry.location.lat)
-			// console.log(data.results[0].geometry.location.lng)
-		})
-
+		$("#map").html('<iframe width="100%" height="100%" frameborder="0" '
+			+' style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin='
+			+ pickUpMap +'&destination='
+			+ dropOffMap +'&key=AIzaSyAEOE9F9HGeovKbWnE4kMcYVLS7NO7Wapg" allowfullscreen></iframe>')
 	}
 
 
@@ -136,28 +117,26 @@
 
 
 	function getLyftPrice() {
-			// console.log('lyft state', stateObj)
-			$.ajax(
-				{
-					method: 'GET',
-					headers: {'Authorization': 'Bearer gAAAAABZETzI6XduhQ07Kf_5dGrlNOrlcc817Q4GbPq8bW2ynOMWPH4rSGSzbdfTb2Lvn6odv3fGE3S6s5hws2_lBpoXxfAPIUrc4ylA1j0hnXtSWQplmYo84fhATqzvzaAgxanbZpxtR9Y1o3QYWpjGUb8jDXU2qZVh4lIYlehLcw7GatTEjWE='},
-					url: 'https://api.lyft.com/v1/cost?start_lat='+ stateObj.start.lat +'&start_lng='+ stateObj.start.lng +'&end_lat='+ stateObj.end.lat +'&end_lng='+ stateObj.end.lng
+		$.ajax(
+			{
+				method: 'GET',
+				headers: {'Authorization': 'Bearer gAAAAABZETzI6XduhQ07Kf_5dGrlNOrlcc817Q4GbPq8bW2ynOMWPH4rSGSzbdfTb2Lvn6odv3fGE3S6s5hws2_lBpoXxfAPIUrc4ylA1j0hnXtSWQplmYo84fhATqzvzaAgxanbZpxtR9Y1o3QYWpjGUb8jDXU2qZVh4lIYlehLcw7GatTEjWE='},
+				url: 'https://api.lyft.com/v1/cost?start_lat='+ stateObj.start.lat +'&start_lng='+ stateObj.start.lng +'&end_lat='+ stateObj.end.lat +'&end_lng='+ stateObj.end.lng
 
-				}
-			).done(function(data) {
-				console.log('lyftprice', data)
-				if(!data.cost_estimates.length) {
-					setPrice('Lyft', ' Trip Exceeds Maximum Fare')
-				} else {
-						if(stateObj.vehicle === 'car') {
-							setPrice('Lyft', data.cost_estimates[4].estimated_cost_cents_min/100 + ' - ' + data.cost_estimates[4].estimated_cost_cents_max/100)
-						} else {
-							setPrice('Lyft', data.cost_estimates[2].estimated_cost_cents_min/100 + ' - ' + data.cost_estimates[2].estimated_cost_cents_max/100)
-						}
-				}
-				
-				showResults();
-			})
+			}
+		).done(function(data) {
+			if(!data.cost_estimates.length) {
+				setPrice('Lyft', ' Trip Exceeds Maximum Fare')
+			} else {
+					if(stateObj.vehicle === 'car') {
+						setPrice('Lyft', data.cost_estimates[4].estimated_cost_cents_min/100 + ' - ' + data.cost_estimates[4].estimated_cost_cents_max/100)
+					} else {
+						setPrice('Lyft', data.cost_estimates[2].estimated_cost_cents_min/100 + ' - ' + data.cost_estimates[2].estimated_cost_cents_max/100)
+					}
+			}
+			
+			showResults();
+		})
 	}
 
 	function getDirections() {
@@ -177,22 +156,15 @@
 				stateObj.travelDistance = result.routes[0].legs[0].distance.value
 				stateObj.travelTime = result.routes[0].legs[0].duration.value
 			}
-			// console.log('api state', stateObj)
-		    // console.log(result, status) // Have a look to the response
-		    console.log(stateObj.travelDistance)
-		    console.log(stateObj.travelTime)	
-		    getLyftPrice();	
-		    var getMePrice = findGetMePrice();
-			setPrice('GetMe', getMePrice);
-			showResults();
-		
-
+		    getLyftPrice()
+		    findGetMePrice()
+			showResults()
 		});
 	}
 
 	function requiresLocations() {
-		if(!stateObj.pickup || !stateObj.dropoff || !stateObj.vehicle) { // requires the properties and not empty with some value
-			return true // breaks the function
+		if(!stateObj.pickup || !stateObj.dropoff || !stateObj.vehicle) { 
+			return true 
 		}
 
 	}
@@ -209,24 +181,29 @@
 		var daySuv = 3.00 + 2.60*estimatedDistance + 0.35*estimatedTravelTime + 3.50
 		var nightCar = 3.00 + 2.50*estimatedDistance + 0.30*estimatedTravelTime + 3.50
 		var nightSuv = 3.00 + 3.50*estimatedDistance + 0.52*estimatedTravelTime + 3.50
-		if (stateObj.vehicle === 'car' || stateObj.vehicle === 'suv') {
-			// console.log(estimatedDistance, estimatedTravelTime, dayCar)
-			 if (stateObj.localHours < 22 && stateObj.localHours >= 5) {
-				if(stateObj.vehicle === 'car') {
-					return dayCar.toFixed(2)
-				} else {
-					return daySuv.toFixed(2)
-				}
+		var price = 0
+		function dayPrice() {
+			if(stateObj.vehicle === 'car') {
+				return dayCar.toFixed(2)
 			} else {
-				if(stateObj.vehicle === 'car') {
-					return nightCar.toFixed(2)
-				} else {
-					return nightSuv.toFixed(2)
-				}
+				return daySuv.toFixed(2)
 			}
-		} else {
-			return 0
 		}
+		function nightPrice() {
+			if(stateObj.vehicle === 'car') {
+				return nightCar.toFixed(2)
+			} else {
+				return nightSuv.toFixed(2)
+			}
+		}
+		if (stateObj.vehicle === 'car' || stateObj.vehicle === 'suv') {
+			if (stateObj.localHours < 22 && stateObj.localHours >= 5) {
+				price = dayPrice()
+			} else {
+				price = nightPrice()
+			}
+		}
+		setPrice('GetMe', price) 
 	}
 
 	function setPrice(name, price) {
@@ -239,7 +216,6 @@
 	}
 
 	function showResults() {
-		// create a price list for each of the individual companies
 		var resultHTML = ""
 		stateObj.results.forEach(function(item) {
 			var companyName = item.name
@@ -254,10 +230,8 @@
 			$template.find('#change-info').html(companyInfo)
 			resultHTML += $template.html()
 		})
-		// console.log(resultHTML);
 		$results.html(resultHTML);
 		$resultContainer.removeClass('hide')
-		// console.log('results')
 	}
 	function calculatePrice() {
 		// getUberPrice();
@@ -271,12 +245,12 @@
 		showHide('#home');
 	}
 
+	// Events declaration
+	$pickUp.on('keyup', userInputPickup)
+	$dropOff.on('keyup', userInputDropoff)
+	$vehicle.on('change', userInputVehicle)
 
+	// Initialization of the application
 	init();
 
 })();
-
-
-
-// TASK TO DO
-// write Readme explaining the use of API and jquery of the project and then finish CSS
